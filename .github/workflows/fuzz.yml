@@ -18,9 +18,7 @@ jobs:
 
     - name: executing FUZZ
       run: |
-        git clone https://github.com/Sh1Yo/x8
-        cd x8
-        docker build -t x8 .
+        cargo install x8
         curl -s https://wordlists-cdn.assetnote.io/data/manual/wordlist_with_underscores.txt > wlist2.txt
         x8 -u "https://pmg-acg-users.verisign.com/heartbeat/" -w wlist2.txt -X GET -o result
         
