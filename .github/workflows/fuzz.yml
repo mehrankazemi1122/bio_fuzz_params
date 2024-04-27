@@ -19,8 +19,9 @@ jobs:
     - name: executing FUZZ
       run: |
         cargo install x8
+        crunch 1 4 abcdefghijklmnopqrstuvwxyz1234567890-_ > 0to4chars.txt
         curl -s https://wordlists-cdn.assetnote.io/data/manual/wordlist_with_underscores.txt > wlist2.txt
-        x8 -u "https://pmg-acg-users.verisign.com/heartbeat/" -w wlist2.txt -X GET -o result
+        x8 -u "https://pmg-acg-users.verisign.com/heartbeat/" -w 0to4chars.txt -X GET -o result
         
     - name: Upload output as artifact
       uses: actions/upload-artifact@v2
