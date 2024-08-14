@@ -26,7 +26,7 @@ jobs:
         crunch 1 4 abcdefghijklmnopqrstuvwxyz1234567890-_ > 0to4chars.txt
         curl -s https://wordlists-cdn.assetnote.io/data/manual/wordlist_with_underscores.txt > wlist2.txt
         cat wlist2.txt 0to4chars.txt | sort -u > all_words.txt
-        x8 -u "http://63.140.38.210/optout" -w all_words.txt -X GET -o res.txt
+        x8 -u "http://63.140.38.210/va" -w all_words.txt -X GET -o res.txt
         cat res.txt
         
     - name: Upload output as artifact
