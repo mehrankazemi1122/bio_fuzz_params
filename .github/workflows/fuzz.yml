@@ -18,7 +18,7 @@ jobs:
 
     - name: executing FUZZ
       run: |
-        cargo install x8
+        pacman -Sy x8
         sudo apt-get -y install crunch
         crunch 1 4 abcdefghijklmnopqrstuvwxyz1234567890-_ > 0to4chars.txt
         curl -s https://wordlists-cdn.assetnote.io/data/manual/wordlist_with_underscores.txt > wlist2.txt
