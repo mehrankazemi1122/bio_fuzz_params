@@ -2,18 +2,11 @@ name: Masscan and ShuffleDNS Installation
 
 on: [push]
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   install-tools:
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --verbose
-    
+    steps:    
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -26,6 +19,7 @@ jobs:
       run: |
         git clone https://github.com/sh1yo/x8
         cd x8
+        cargo update
         cargo build --release
         cp ./target/release/x8 /usr/local/bin 
         sudo apt-get -y install crunch
